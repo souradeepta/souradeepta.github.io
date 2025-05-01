@@ -1,32 +1,72 @@
 baseURL = "https://souradeepta.github.io/"
 languageCode = "en-us"
-title = "Souradeepta's Portfolio"
+title = "Souradeepta Biswas"
 theme = "PaperMod"
 
-[pagination]
-  pagerSize = 5
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
-  defaultTheme = "auto"
-  ShowReadingTime = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  homeInfoParams = { Title = "Hi 👋", Content = "Welcome to my portfolio site. I write about tech, projects, and ideas." }
+profileModeEnabled = true
+profileModeShowHeaderImage = true
+profileModeShowDescription = true
+profileModeShowSocial = true
+profileModeShowSearch = true
+profileModeShowReadingTime = true
+profileModeShowWordCount = true
+profileModeShowPostCount = true
+
+[params.profileMode]
+enabled = true
+title = "Souradeepta Biswas"
+subtitle = "Senior Software Engineer"
+description = "I'm a Senior Software Engineer specializing in Python, AWS, and Networking. Explore my projects and blog posts to learn more about my work."
+imageUrl = "images/profile.jpg"
+imageHeight = 200
+imageWidth = 200
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
 
 [[menu.main]]
-  identifier = "blog"
-  name = "Blog"
-  url = "/blog/"
-  weight = 1
+identifier = "blog"
+name = "Blog"
+url = "/blog/"
 
 [[menu.main]]
-  identifier = "projects"
-  name = "Projects"
-  url = "/projects/"
-  weight = 2
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
 
-[[menu.main]]
-  identifier = "about"
-  name = "About Me"
-  url = "/about/"
-  weight = 3
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[build]
+drafts = false
+future = false
+expired = false
+
+[permalinks]
+post = "/:year/:month/:title/"
+
+[author]
+name = "Souradeepta Biswas"
+
+[params.social]
+github = "https://github.com/souradeepta"
+linkedin = "https://www.linkedin.com/in/souradeepta"
+twitter = "https://twitter.com/souradeepta"
+instagram = "https://instagram.com/daft_wanderer/"
+email = "mailto:sdb.svnit@gmail.com"
+
+[params.fuseOpts]
+keys = ["title", "summary", "content"]
+threshold = 0.3
+includeScore = true
