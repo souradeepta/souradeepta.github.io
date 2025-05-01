@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Networking on Souradeepta&#39;s Portfolio</title>
+    <link>http://localhost:46365/tags/networking/</link>
+    <description>Recent content in Networking on Souradeepta&#39;s Portfolio</description>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Apr 2025 21:01:02 -0700</lastBuildDate>
+    <atom:link href="http://localhost:46365/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing Zero Trust Architecture with AWS Transit Gateway</title>
+      <link>http://localhost:46365/blog/zero-trust-aws/</link>
+      <pubDate>Wed, 30 Apr 2025 21:01:02 -0700</pubDate>
+      <guid>http://localhost:46365/blog/zero-trust-aws/</guid>
+      <description>&lt;h1 id=&#34;understanding-zero-trust-architecture&#34;&gt;Understanding Zero Trust Architecture&lt;/h1&gt;
+&lt;p&gt;Zero Trust is a security concept centered on the belief that organizations shouldn&amp;rsquo;t automatically trust anything inside or outside their perimeters and must verify anything and everything trying to connect to their systems before granting access. In this article, we&amp;rsquo;ll explore how to implement Zero Trust Architecture using AWS Transit Gateway and other AWS services.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-transit-gateway-for-zero-trust&#34;&gt;Setting Up Transit Gateway for Zero Trust&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start by setting up the core infrastructure for our Zero Trust environment. Here&amp;rsquo;s a Python script using Boto3 to create a Transit Gateway:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI for Network Anomaly Detection</title>
+      <link>http://localhost:46365/blog/ai-network-anomaly/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46365/blog/ai-network-anomaly/</guid>
+      <description>&lt;p&gt;In modern networking, detecting anomalies can help prevent security breaches and ensure optimal performance. Machine learning techniques have become invaluable tools for detecting anomalies in network traffic.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll use a basic AI model for anomaly detection using Python and Scikit-Learn. First, you’ll need to install the required packages:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install scikit-learn pandas matplotlib
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here’s an example of using a Random Forest classifier to detect network anomalies:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pandas &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; pd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.ensemble &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; RandomForestClassifier
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Sample data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pd&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DataFrame({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;packet_size&amp;#39;&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;latency&amp;#39;&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_anomaly&amp;#39;&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data[[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;packet_size&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;latency&amp;#39;&lt;/span&gt;]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_anomaly&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomForestClassifier()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fit(X, y)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Predict anomalies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;predictions &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;predict([[&lt;span style=&#34;color:#ae81ff&#34;&gt;1200&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;]])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(predictions)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This model helps in flagging any abnormal network traffic by learning from historical traffic data.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

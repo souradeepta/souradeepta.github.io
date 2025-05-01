@@ -1,3 +1,32 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://souradeepta.github.io/"
+languageCode = "en-us"
+title = "Souradeepta's Portfolio"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 5
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  homeInfoParams = { Title = "Hi 👋", Content = "Welcome to my portfolio site. I write about tech, projects, and ideas." }
+
+[[menu.main]]
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "about"
+  name = "About Me"
+  url = "/about/"
+  weight = 3

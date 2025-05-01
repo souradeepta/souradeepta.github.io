@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on Souradeepta&#39;s Portfolio</title>
+    <link>http://localhost:46365/projects/</link>
+    <description>Recent content in Projects on Souradeepta&#39;s Portfolio</description>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Apr 2025 21:01:02 -0700</lastBuildDate>
+    <atom:link href="http://localhost:46365/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Cost Optimization Dashboard</title>
+      <link>http://localhost:46365/projects/aws-cost-dashboard/</link>
+      <pubDate>Wed, 30 Apr 2025 21:01:02 -0700</pubDate>
+      <guid>http://localhost:46365/projects/aws-cost-dashboard/</guid>
+      <description>A comprehensive dashboard for monitoring and optimizing AWS costs using Python and AWS Cost Explorer API</description>
+    </item>
+    <item>
+      <title>AWS Security Automation Framework</title>
+      <link>http://localhost:46365/projects/aws-security-framework/</link>
+      <pubDate>Wed, 30 Apr 2025 21:01:02 -0700</pubDate>
+      <guid>http://localhost:46365/projects/aws-security-framework/</guid>
+      <description>A comprehensive security automation framework for AWS environments</description>
+    </item>
+    <item>
+      <title>Network Configuration Management System</title>
+      <link>http://localhost:46365/projects/network-config-manager/</link>
+      <pubDate>Wed, 30 Apr 2025 21:01:02 -0700</pubDate>
+      <guid>http://localhost:46365/projects/network-config-manager/</guid>
+      <description>A Python-based system for managing network device configurations across multiple vendors</description>
+    </item>
+    <item>
+      <title>Kubernetes Certificate Renewer</title>
+      <link>http://localhost:46365/projects/k8s-cert-renewer/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46365/projects/k8s-cert-renewer/</guid>
+      <description>&lt;p&gt;Managing certificates in Kubernetes can be tricky, especially when they are about to expire. This project automates the renewal of certificates in a Kubernetes cluster, ensuring that services remain secure without manual intervention.&lt;/p&gt;
+&lt;p&gt;We use a Python script that integrates with the Kubernetes API to check for certificate expiry dates, and if any certificates are nearing expiration, the script renews them automatically. This prevents downtime and keeps your cluster secure.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Network Scanner</title>
+      <link>http://localhost:46365/projects/network-scanner/</link>
+      <pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46365/projects/network-scanner/</guid>
+      <description>&lt;p&gt;The &lt;strong&gt;Network Scanner&lt;/strong&gt; is a Python-based project designed to scan a network for live devices, open ports, and vulnerabilities. The project uses a combination of &lt;strong&gt;Scapy&lt;/strong&gt; and &lt;strong&gt;Nmap&lt;/strong&gt; to gather information about devices and services on the network.&lt;/p&gt;
+&lt;p&gt;To start, you need to install the required libraries:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install scapy nmap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here&amp;rsquo;s an example of how to scan a network for live devices using Scapy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; scapy.all &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ARP, Ether, srp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;scan_network&lt;/span&gt;(target_ip):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    arp_request &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ARP(pdst&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;target_ip)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    broadcast &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Ether(dst&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ff:ff:ff:ff:ff:ff&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    arp_request_broadcast &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; broadcast&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;arp_request
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Send the packet and receive the response&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    answered_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; srp(arp_request_broadcast, timeout&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, verbose&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Parse the response and print the results&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; element &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; answered_list:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;IP Address: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;element[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;psrc&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;, MAC Address: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;element[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;hwsrc&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Example usage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scan_network(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;192.168.1.1/24&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In addition to basic network scanning, the project can be extended to perform more advanced scans such as port scans and vulnerability assessments using Nmap. Here’s an example of using Nmap to check for open ports:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>EBS Snapshot Auto-Rotation</title>
+      <link>http://localhost:46365/projects/aws-ebs-snapshots/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46365/projects/aws-ebs-snapshots/</guid>
+      <description>&lt;p&gt;This Python script automates the process of taking snapshots of your AWS Elastic Block Store (EBS) volumes to ensure backups are always up-to-date.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a simplified script using &lt;strong&gt;boto3&lt;/strong&gt; to manage snapshots:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; boto3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ec2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; boto3&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;client(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ec2&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;create_snapshot&lt;/span&gt;(volume_id):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    snapshot &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ec2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_snapshot(VolumeId&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;volume_id, Description&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Snapshot &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;now()&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Snapshot &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;snapshot[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;SnapshotId&amp;#39;&lt;/span&gt;]&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; created successfully&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The script schedules regular snapshots for your EBS volumes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>F5 VIP Manager API</title>
+      <link>http://localhost:46365/projects/f5-vip-manager/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46365/projects/f5-vip-manager/</guid>
+      <description>&lt;p&gt;This project involves building a Django API combined with a Bash script and mTLS configuration to automate the creation and management of F5 VIPs.&lt;/p&gt;
+&lt;p&gt;Here’s the high-level code for the Django API to create a VIP on an F5 device:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; django.http &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; JsonResponse
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; subprocess
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;create_vip&lt;/span&gt;(request):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vip_name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; request&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;POST&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vip_name&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vip_ip &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; request&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;POST&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vip_ip&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Execute the Bash script to create the VIP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;run([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./create_vip.sh&amp;#39;&lt;/span&gt;, vip_name, vip_ip], capture_output&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;returncode &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; JsonResponse({&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;success&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;: result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stdout})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; JsonResponse({&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;error&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;: result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stderr})
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This integration allows for full automation and secure creation of F5 VIPs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

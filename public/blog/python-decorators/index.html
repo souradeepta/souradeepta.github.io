@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=46365&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Advanced Python Decorators for Enterprise Applications | Souradeepta&#39;s Portfolio</title>
+<meta name="keywords" content="Python, Decorators, Enterprise, Best Practices">
+<meta name="description" content="Introduction to Python Decorators
+Python decorators are powerful tools that allow us to modify or enhance functions and methods without changing their original code. In enterprise applications, decorators help implement cross-cutting concerns like logging, authentication, and caching. Let&rsquo;s explore advanced decorator patterns that can make your code more maintainable and scalable.
+Parameterized Decorators
+One of the most useful features of decorators is their ability to accept parameters. This allows for more flexible and configurable behavior. Here&rsquo;s an example of a parameterized logging decorator:">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:46365/blog/python-decorators/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:46365/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:46365/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:46365/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:46365/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:46365/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:46365/blog/python-decorators/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:46365/" accesskey="h" title="Souradeepta&#39;s Portfolio (Alt + H)">Souradeepta&#39;s Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:46365/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:46365/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:46365/about/" title="About Me">
+                    <span>About Me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+
+    <h1 class="post-title entry-hint-parent">
+      Advanced Python Decorators for Enterprise Applications
+    </h1>
+    <div class="post-meta"><span title='2025-04-30 21:01:02 -0700 MST'>April 30, 2025</span>&nbsp;·&nbsp;3 min
+
+</div>
+  </header>
+  <div class="post-content"><h1 id="introduction-to-python-decorators">Introduction to Python Decorators<a hidden class="anchor" aria-hidden="true" href="#introduction-to-python-decorators">#</a></h1>
+<p>Python decorators are powerful tools that allow us to modify or enhance functions and methods without changing their original code. In enterprise applications, decorators help implement cross-cutting concerns like logging, authentication, and caching. Let&rsquo;s explore advanced decorator patterns that can make your code more maintainable and scalable.</p>
+<h2 id="parameterized-decorators">Parameterized Decorators<a hidden class="anchor" aria-hidden="true" href="#parameterized-decorators">#</a></h2>
+<p>One of the most useful features of decorators is their ability to accept parameters. This allows for more flexible and configurable behavior. Here&rsquo;s an example of a parameterized logging decorator:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> wraps
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log_execution</span>(level<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;info&#39;</span>, message<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decorator</span>(func):
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@wraps</span>(func)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>            logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(func<span style="color:#f92672">.</span>__module__)
+</span></span><span style="display:flex;"><span>            start_time <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>                result <span style="color:#f92672">=</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>                duration <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> start_time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                log_msg <span style="color:#f92672">=</span> message <span style="color:#f92672">or</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>func<span style="color:#f92672">.</span>__name__<span style="color:#e6db74">}</span><span style="color:#e6db74"> executed successfully&#34;</span>
+</span></span><span style="display:flex;"><span>                logger<span style="color:#f92672">.</span>log(
+</span></span><span style="display:flex;"><span>                    getattr(logging, level<span style="color:#f92672">.</span>upper()),
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>log_msg<span style="color:#e6db74">}</span><span style="color:#e6db74"> in </span><span style="color:#e6db74">{</span>duration<span style="color:#e6db74">:</span><span style="color:#e6db74">.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;</span>
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>                logger<span style="color:#f92672">.</span>error(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>func<span style="color:#f92672">.</span>__name__<span style="color:#e6db74">}</span><span style="color:#e6db74"> failed: </span><span style="color:#e6db74">{</span>str(e)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> wrapper
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> decorator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Usage example</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@log_execution</span>(level<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;debug&#39;</span>, message<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Processing user data&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_user_data</span>(user_id):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Business logic here</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><h2 id="class-based-decorators">Class-based Decorators<a hidden class="anchor" aria-hidden="true" href="#class-based-decorators">#</a></h2>
+<p>For more complex scenarios, class-based decorators provide better organization and state management. This is particularly useful when you need to maintain state across multiple function calls:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RateLimiter</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, max_calls<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, period<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>max_calls <span style="color:#f92672">=</span> max_calls
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>period <span style="color:#f92672">=</span> period
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>calls <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __call__(self, func):
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@wraps</span>(func)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>            current_time <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Remove calls older than the period</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>calls <span style="color:#f92672">=</span> [call <span style="color:#66d9ef">for</span> call <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>calls
+</span></span><span style="display:flex;"><span>                         <span style="color:#66d9ef">if</span> current_time <span style="color:#f92672">-</span> call <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>period]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(self<span style="color:#f92672">.</span>calls) <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>max_calls:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Rate limit exceeded: </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>max_calls<span style="color:#e6db74">}</span><span style="color:#e6db74"> calls per </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>period<span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>calls<span style="color:#f92672">.</span>append(current_time)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> wrapper
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Usage example</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RateLimiter</span>(max_calls<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, period<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">api_endpoint</span>(request):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># API processing logic</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><h2 id="decorator-factories">Decorator Factories<a hidden class="anchor" aria-hidden="true" href="#decorator-factories">#</a></h2>
+<p>Decorator factories allow you to create families of related decorators with varying parameters. This is particularly useful in enterprise applications where you might need different versions of similar functionality:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cache</span>(timeout<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, backend<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;memory&#39;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decorator</span>(func):
+</span></span><span style="display:flex;"><span>        cache_storage <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@wraps</span>(func)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>func<span style="color:#f92672">.</span>__name__<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>args<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>kwargs<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> key <span style="color:#f92672">in</span> cache_storage:
+</span></span><span style="display:flex;"><span>                cached_time, result <span style="color:#f92672">=</span> cache_storage[key]
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> timeout <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> cached_time <span style="color:#f92672">&lt;</span> timeout:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            result <span style="color:#f92672">=</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>            cache_storage[key] <span style="color:#f92672">=</span> (time<span style="color:#f92672">.</span>time(), result)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> wrapper
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> decorator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Usage examples</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@cache</span>(timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">3600</span>)  <span style="color:#75715e"># Cache for 1 hour</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@cache</span>(backend<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;redis&#39;</span>)  <span style="color:#75715e"># Use Redis backend</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@cache</span>()  <span style="color:#75715e"># Simple caching</span>
+</span></span></code></pre></div><h2 id="best-practices-for-enterprise-applications">Best Practices for Enterprise Applications<a hidden class="anchor" aria-hidden="true" href="#best-practices-for-enterprise-applications">#</a></h2>
+<p>When using decorators in enterprise applications, follow these best practices:</p>
+<ol>
+<li>Use <code>functools.wraps</code> to preserve function metadata</li>
+<li>Handle exceptions gracefully</li>
+<li>Consider thread safety</li>
+<li>Document decorator behavior clearly</li>
+<li>Use type hints for better IDE support</li>
+</ol>
+<p>Here&rsquo;s an example of a production-ready decorator following these practices:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> wraps
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Callable, Any
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">thread_safe_cache</span>(timeout: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">3600</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Thread-safe caching decorator with timeout.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        timeout: Cache expiration time in seconds
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decorator</span>(func: Callable) <span style="color:#f92672">-&gt;</span> Callable:
+</span></span><span style="display:flex;"><span>        cache <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>        lock <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Lock()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@wraps</span>(func)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args: Any, <span style="color:#f92672">**</span>kwargs: Any) <span style="color:#f92672">-&gt;</span> Any:
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;Wrapper function that handles caching.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>func<span style="color:#f92672">.</span>__name__<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>args<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>kwargs<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">with</span> lock:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> key <span style="color:#f92672">in</span> cache:
+</span></span><span style="display:flex;"><span>                    cached_time, result <span style="color:#f92672">=</span> cache[key]
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> cached_time <span style="color:#f92672">&lt;</span> timeout:
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            result <span style="color:#f92672">=</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">with</span> lock:
+</span></span><span style="display:flex;"><span>                cache[key] <span style="color:#f92672">=</span> (time<span style="color:#f92672">.</span>time(), result)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> wrapper
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> decorator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Usage with type hints</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@thread_safe_cache</span>(timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">3600</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_user_data</span>(user_id: str) <span style="color:#f92672">-&gt;</span> dict:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Fetch user data from the database.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Database query logic</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> user_data
+</span></span></code></pre></div><p>This article has covered the essential aspects of advanced Python decorators for enterprise applications. By implementing these patterns, you can create more maintainable, scalable, and efficient code that follows best practices for production environments.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:46365/tags/python/">Python</a></li>
+      <li><a href="http://localhost:46365/tags/decorators/">Decorators</a></li>
+      <li><a href="http://localhost:46365/tags/enterprise/">Enterprise</a></li>
+      <li><a href="http://localhost:46365/tags/best-practices/">Best Practices</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:46365/">Souradeepta&#39;s Portfolio</a></span> ·
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

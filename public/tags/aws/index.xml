@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AWS on Souradeepta&#39;s Portfolio</title>
+    <link>http://localhost:46365/tags/aws/</link>
+    <description>Recent content in AWS on Souradeepta&#39;s Portfolio</description>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Apr 2025 21:01:02 -0700</lastBuildDate>
+    <atom:link href="http://localhost:46365/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Serverless Applications with AWS Lambda and DynamoDB</title>
+      <link>http://localhost:46365/blog/aws-serverless-app/</link>
+      <pubDate>Wed, 30 Apr 2025 21:01:02 -0700</pubDate>
+      <guid>http://localhost:46365/blog/aws-serverless-app/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-serverless-architecture&#34;&gt;Introduction to Serverless Architecture&lt;/h1&gt;
+&lt;p&gt;Serverless computing has revolutionized how we build scalable applications. In this article, we&amp;rsquo;ll explore building a serverless application using AWS Lambda and DynamoDB. This architecture offers significant benefits in terms of scalability, cost-effectiveness, and maintenance.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start by setting up our development environment. First, we&amp;rsquo;ll create a Python-based Lambda function that integrates with DynamoDB:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; boto3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; boto3.dynamodb.conditions &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lambda_handler&lt;/span&gt;(event, context):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dynamodb &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; boto3&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;resource(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dynamodb&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    table &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dynamodb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Table(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;UserProfiles&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Get user data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; event&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_id&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_id:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;statusCode&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;body&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Missing user_id&amp;#39;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; table&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_item(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Key&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_id&amp;#39;&lt;/span&gt;: user_id}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;statusCode&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;body&amp;#39;&lt;/span&gt;: response&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Item&amp;#39;&lt;/span&gt;, {})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;statusCode&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;body&amp;#39;&lt;/span&gt;: str(e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;optimizing-dynamodb-performance&#34;&gt;Optimizing DynamoDB Performance&lt;/h1&gt;
+&lt;p&gt;To ensure optimal performance, we&amp;rsquo;ll implement several best practices:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Implementing Zero Trust Architecture with AWS Transit Gateway</title>
+      <link>http://localhost:46365/blog/zero-trust-aws/</link>
+      <pubDate>Wed, 30 Apr 2025 21:01:02 -0700</pubDate>
+      <guid>http://localhost:46365/blog/zero-trust-aws/</guid>
+      <description>&lt;h1 id=&#34;understanding-zero-trust-architecture&#34;&gt;Understanding Zero Trust Architecture&lt;/h1&gt;
+&lt;p&gt;Zero Trust is a security concept centered on the belief that organizations shouldn&amp;rsquo;t automatically trust anything inside or outside their perimeters and must verify anything and everything trying to connect to their systems before granting access. In this article, we&amp;rsquo;ll explore how to implement Zero Trust Architecture using AWS Transit Gateway and other AWS services.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-transit-gateway-for-zero-trust&#34;&gt;Setting Up Transit Gateway for Zero Trust&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start by setting up the core infrastructure for our Zero Trust environment. Here&amp;rsquo;s a Python script using Boto3 to create a Transit Gateway:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using AWS Lambda Powertools for Python</title>
+      <link>http://localhost:46365/blog/aws-lambda-powertools/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46365/blog/aws-lambda-powertools/</guid>
+      <description>&lt;p&gt;AWS Lambda Powertools is a set of utilities that help simplify the development of serverless applications in AWS. In this post, we will explore how to use Powertools for logging, tracing, and metrics.&lt;/p&gt;
+&lt;p&gt;To start using AWS Lambda Powertools, you need to install the package:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install aws-lambda-powertools
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here’s an example of using the Logger utility for structured logging:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; aws_lambda_powertools &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Logger
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;logger &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Logger(service&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;my-service&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@logger.inject_lambda_context&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lambda_handler&lt;/span&gt;(event, context):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    logger&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lambda function started&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;statusCode&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This simple setup enables better observability for your Lambda functions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
