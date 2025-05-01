@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=43211&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags</title>
+    <title>{{ .Title }}</title>
 </head>
 
 <body>
-    <h1>Tags</h1>
+    <h1>{{ .Title }}</h1>
     <ul>
-        
+        {{ range .Pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
     </ul>
 </body>
 

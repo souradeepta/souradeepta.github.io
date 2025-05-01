@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to {{ .Site.Title }}</h1>
+        <p>{{ .Site.Params.description }}</p>
+    </header>
+
+    <main>
+        <h2>Recent Posts</h2>
+        <ul>
+            {{ range first 5 .Pages }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
