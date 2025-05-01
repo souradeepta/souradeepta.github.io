@@ -56,8 +56,12 @@ expired = false
 [permalinks]
 post = "/:year/:month/:title/"
 
-[author]
+[params.author]
 name = "Souradeepta Biswas"
+email = "sdb.svnit@gmail.com"
+link = "https://github.com/souradeepta"
+twitter = "souradeepta"
+linkedin = "souradeepta"
 
 [params.social]
 github = "https://github.com/souradeepta"
