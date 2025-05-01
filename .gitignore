@@ -3,3 +3,4 @@ node_modules
 .hugo
 .tarvis
 .hugo_build.lock
+.notes

@@ -1,27 +1,41 @@
-title = "My Dev Page"
-baseURL = "https://souradeepta.github.io/"
-theme = "PaperMod"
+baseURL = "http://localhost:1313/"
 languageCode = "en-us"
+title = "Souradeepta Biswas"
+theme = "PaperMod"
+
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
-  ShowReadingTime = true
-  defaultTheme = "auto"
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  ShowCodeCopyButtons = true
+homeInfoParams = true
+homeInfoTitle = "Welcome to my developer portfolio"
+homeInfoContent = "I'm a Senior Software Engineer specializing in Python, AWS, and Networking. Explore my projects and blog posts to learn more about my work."
+homeInfoShowOnHome = true
+profileModeEnabled = true
+profileModeShowHeaderImage = true
+profileModeShowDescription = true
+profileModeShowSocial = true
+profileModeShowSearch = true
+profileModeShowReadingTime = true
+profileModeShowWordCount = true
+profileModeShowPostCount = true
+
+[params.profileMode]
+enabled = true
+title = "Souradeepta Biswas"
+subtitle = "Senior Software Engineer"
+description = "I'm a Senior Software Engineer specializing in Python, AWS, and Networking. Explore my projects and blog posts to learn more about my work."
+imageUrl = "images/profile.jpg"
+imageHeight = 200
+imageWidth = 200
+
+[taxonomies]
+tag = "tags"
+category = "categories"
 
 [menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-
-  [[menu.main]]
-    identifier = "projects"
-    name = "Projects"
-    url = "/projects/"
-
-  [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "/blog/"
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 10
