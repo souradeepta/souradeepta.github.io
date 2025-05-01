@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Async on My Dev Page</title>
+    <link>https://souradeepta.github.io/tags/async/</link>
+    <description>Recent content in Async on My Dev Page</description>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://souradeepta.github.io/tags/async/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async Django Views in Django 5.0</title>
+      <link>https://souradeepta.github.io/blog/django-5-async/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/blog/django-5-async/</guid>
+      <description>&lt;p&gt;Django 5.0 introduces native async support for views. This is a game-changer for applications that require asynchronous database queries, web requests, or other I/O-bound tasks. Let&amp;rsquo;s explore how async views can help you improve performance and scalability.&lt;/p&gt;
+&lt;p&gt;With the new &lt;code&gt;async def&lt;/code&gt; syntax, Django allows you to write non-blocking views. These views run asynchronously, freeing up the event loop to handle other requests while waiting for I/O operations to complete. This results in faster response times for applications that rely heavily on I/O operations, such as APIs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

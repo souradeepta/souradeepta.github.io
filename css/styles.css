@@ -1,0 +1,108 @@
+/* General Styling for About Me Page */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f0f8ff, #d0e8ff);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: all 0.3s ease-in-out;
+}
+
+[data-theme="dark"] {
+    --background-color: #333;
+    --text-color: #f4f4f4;
+}
+
+/* Styling the About Me Header */
+header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    font-size: 2.5em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/* Fun Fact Section */
+h2 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Social Icons Styling */
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 1.8em;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #4CAF50;
+    transform: scale(1.2);
+}
+
+/* Animation to the About Me Section */
+section {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animated Typing Effect */
+.typing-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    color: #333;
+    border-right: 2px solid;
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(30) 1s infinite normal both;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

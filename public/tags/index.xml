@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on My Dev Page</title>
+    <link>https://souradeepta.github.io/tags/</link>
+    <description>Recent content in Tags on My Dev Page</description>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://souradeepta.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django</title>
+      <link>https://souradeepta.github.io/tags/django/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/django/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://souradeepta.github.io/tags/llm/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openai</title>
+      <link>https://souradeepta.github.io/tags/openai/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/openai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Async</title>
+      <link>https://souradeepta.github.io/tags/async/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://souradeepta.github.io/tags/python/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>https://souradeepta.github.io/tags/aws/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lambda</title>
+      <link>https://souradeepta.github.io/tags/lambda/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/lambda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>https://souradeepta.github.io/tags/ai/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ml</title>
+      <link>https://souradeepta.github.io/tags/ml/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>https://souradeepta.github.io/tags/networking/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://souradeepta.github.io/tags/networking/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,1 +1,5 @@
 node_modules
+.github
+.hugo
+.tarvis
+.hugo_build.lock

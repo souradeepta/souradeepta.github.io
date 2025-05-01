@@ -1,0 +1,27 @@
+title = "My Dev Page"
+baseURL = "https://souradeepta.github.io/"
+theme = "PaperMod"
+languageCode = "en-us"
+
+[params]
+  ShowReadingTime = true
+  defaultTheme = "auto"
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
