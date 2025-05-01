@@ -1,4 +1,0 @@
----
-title: "Home"
-type: "home"
----
